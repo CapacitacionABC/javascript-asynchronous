@@ -1,9 +1,10 @@
 const paises = ['Alemani', 'Chile', 'Salvador', 'Colombia', 'Venezuela', 'Peru'];
 
 // Esta funcion agrega un pais despues de 2 segundos
-function nuevoPais(pais) {
+function nuevoPais(pais, callback) {
     setTimeout(function() {
         paises.push(pais);
+        callback();
     }, 2000);
 }
 
@@ -17,6 +18,6 @@ function mostrarPaises() {
     }, 1000);
 }
 
-nuevoPais('Caliombia');
+nuevoPais('Caliombia', mostrarPaises);
 
 mostrarPaises();
