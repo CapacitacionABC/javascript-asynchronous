@@ -1,11 +1,17 @@
 // Promises
 
-const esperando = new Promise(function(resolve, reject) {
-    setTimeout(function() {
-        resolve('Se ejecuto')
-    }, 5000);
+const aplicarDescuento = new Promise(function(resolve, reject) {
+    const descuento = true;
+
+    if (descuento) {
+        resolve('Desacuento aplicado')
+    } else {
+        reject('Desacuento no aplicado')
+    }
 });
 
-esperando.then(function(mensaje) {
-    console.log(mensaje);
+aplicarDescuento.then(function(mensaje) {
+    console.log(mensaje)
+}).catch(function(error) {
+    console.log(error);
 });
