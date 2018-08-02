@@ -1,23 +1,11 @@
-const paises = ['Alemani', 'Chile', 'Salvador', 'Colombia', 'Venezuela', 'Peru'];
+// Promises
 
-// Esta funcion agrega un pais despues de 2 segundos
-function nuevoPais(pais, callback) {
+const esperando = new Promise(function(resolve, reject) {
     setTimeout(function() {
-        paises.push(pais);
-        callback();
-    }, 2000);
-}
+        resolve('Se ejecuto')
+    }, 5000);
+});
 
-function mostrarPaises() {
-    setTimeout(function() {
-        let html = '';
-        paises.forEach(function(pais) {
-            html += `<li>${pais}</li>`;
-        });
-        document.getElementById('app').innerHTML = html;
-    }, 1000);
-}
-
-nuevoPais('Caliombia', mostrarPaises);
-
-mostrarPaises();
+esperando.then(function(mensaje) {
+    console.log(mensaje);
+});
